@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <!--路由挂载-->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'app',
-  components: {
-    Hello
+   created() {
+     //初始化从缓存中取数据赋值给state的对象
+      this.INIT_STATE();//由于引入了mapMutations 这句话实际是：this.$store.commit('INIT_STATE')
+  },
+  methods: {
+      ...mapMutations([
+          'INIT_STATE'
+      ])
   }
 }
 </script>
 
-<style>
+<!--全局引入样式-->
+<style lang="scss">
+@import 'src/assets/css/reset';
+@import 'src/assets/css/common';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
 }
 </style>

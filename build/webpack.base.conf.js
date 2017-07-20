@@ -60,6 +60,11 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      //配置sassloader
+       {
+          test: /\.s[a|c]ss$/,
+          loader: 'style!css!sass'
       }
     ]
   }
