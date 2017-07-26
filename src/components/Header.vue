@@ -26,13 +26,11 @@ import { mapState } from 'vuex';
 export default {
   //计算属性
   computed:{
-   //默认headertitle是RM
+   //默认headertitle是RM 类型和标题（全局使用）
   ...mapState([
-   'headerTitle'
-
+   'headerTitle',
+   'headerType'
   ])
-
-
   }
 
 

@@ -1,7 +1,8 @@
 
 /***引入类型 */
 import {
-	INIT_STATE
+	INIT_STATE,
+	SET_HEADER_INFO
 } from './mutation-types';
 /***操作缓存 */
 import {
@@ -28,9 +29,16 @@ export default {
 		state.fontSize = Number.isInteger(getStore('FONTSIZE')) ? parseInt(getStore('FONTSIZE')) : 14;
 		/****设置皮肤 */
 		state.skinColor = getStore('SKINCOLOR');
-	}
-
-
+	},
+	//设置标题和类型
+    [SET_HEADER_INFO](state, {
+		title,
+		type
+	}) {
+		state.headerTitle = title;
+		state.headerType = type;
+	},
+    
 
 
 }
